@@ -53,7 +53,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid #ccc; /* Just for visualization, you can remove this */
+  border: 2px solid #3c3a3a; /* Just for visualization, you can remove this */
   margin: 20px;
   cursor: zoom-in;
  
@@ -190,23 +190,27 @@ body {
 }
 
 
-
-/* Disable pinch zooming on touch devices */
-@media (max-width: 767px) {
-  /* Adjust the max-width value as needed for different screen sizes */
-  html {
-    touch-action: manipulation;
+/* Large screens (Desktops and Laptops) */
+@media screen and (min-width: 1024px) {
+  .zoom {
+    max-width: 800px; 
+    margin: 0 auto;
   }
 }
 
-/* Prevent zooming using the mouse wheel on desktops */
-@media (min-width: 768px) {
-  /* Adjust the min-width value as needed for different screen sizes */
-  html {
-    /* For most modern browsers */
-    pointer-events: none;
-    /* For Internet Explorer and Edge */
-    -ms-content-zooming: none;
+/* Medium screens (Tablets) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .zoom {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+/* Small screens (Phones) */
+@media screen and (max-width: 767px) {
+  .zoom {
+    max-width: 90%; 
+    margin: 0 auto;
   }
 }
 
