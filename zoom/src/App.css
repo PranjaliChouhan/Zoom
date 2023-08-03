@@ -1,0 +1,214 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  margin: 0;
+  background-color: #000;
+}
+
+.image-container {
+  max-width: 200px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ccc; /* Just for visualization, you can remove this */
+  margin: 20px;
+  cursor: zoom-in;
+ 
+}
+
+.btn {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0; /* Position the buttons at the top */
+  left: 0; /* Position the buttons at the left */
+  margin: 20px;
+  
+}
+
+
+.btn-handle {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  margin: 5px;
+  background-color: #000;
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 1px;
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 8px;
+  height: 65px;
+  width: 200px;
+  padding: 12px;
+  border-radius: 15px 15px 12px 12px;
+  cursor: pointer;
+  position: relative;
+  will-change: transform;
+  transition: all .1s ease-in-out 0s;
+  user-select: none;
+  /* Add gradient shading to each side */
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  background-position: bottom right, bottom right;
+  background-size: 100% 100%, 100% 100%;
+  background-repeat: no-repeat;
+  box-shadow: inset -4px -10px 0px rgba(255, 255, 255, 0.4),
+    inset -4px -8px 0px rgba(0, 0, 0, 0.3),
+    0px 2px 1px rgba(0, 0, 0, 0.3),
+    0px 2px 1px rgba(255, 255, 255, 0.1);
+  transform: perspective(70px) rotateX(5deg) rotateY(0deg);
+}
+
+.btn-handle span {
+  transform: translateY(-10px);
+  
+}
+
+.btn-handle::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.5));
+  z-index: -1;
+  border-radius: 15px;
+  box-shadow: inset 4px 0px 0px rgba(255, 255, 255, 0.1),
+    inset 4px -8px 0px rgba(0, 0, 0, 0.3);
+  transition: all .1s ease-in-out 0s;
+}
+
+.btn-handle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  background-position: bottom right, bottom right;
+  background-size: 100% 100%, 100% 100%;
+  background-repeat: no-repeat;
+  z-index: -1;
+  border-radius: 15px;
+  transition: all .1s ease-in-out 0s;
+}
+
+.btn-handle:active {
+  will-change: transform;
+  transform: perspective(80px) rotateX(5deg) rotateY(1deg) translateY(3px) scale(0.96);
+  height: 64px;
+  border: 0.25px solid rgba(0, 0, 0, 0.2);
+  box-shadow: inset -4px -8px 0px rgba(255, 255, 255, 0.2),
+    inset -4px -6px 0px rgba(0, 0, 0, 0.8),
+    0px 1px 0px rgba(0, 0, 0, 0.9),
+    0px 1px 0px rgba(255, 255, 255, 0.2);
+  transition: all .1s ease-in-out 0s;
+}
+
+.btn-handle::after:active {
+  background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.2));
+}
+
+.btn-handle:active::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 5%;
+  left: 20%;
+  width: 50%;
+  height: 80%;
+  background-color: rgba(255, 255, 255, 0.1);
+  animation: overlay 0.1s ease-in-out 0s;
+  pointer-events: none;
+}
+
+.btn-handle svg {
+  width: 15px;
+  height: 15px;
+}
+
+@keyframes overlay {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.btn-handle:focus {
+  outline: none;
+}
+
+
+
+/* Disable pinch zooming on touch devices */
+@media (max-width: 767px) {
+  /* Adjust the max-width value as needed for different screen sizes */
+  html {
+    touch-action: manipulation;
+  }
+}
+
+/* Prevent zooming using the mouse wheel on desktops */
+@media (min-width: 768px) {
+  /* Adjust the min-width value as needed for different screen sizes */
+  html {
+    /* For most modern browsers */
+    pointer-events: none;
+    /* For Internet Explorer and Edge */
+    -ms-content-zooming: none;
+  }
+}
+
+
+
