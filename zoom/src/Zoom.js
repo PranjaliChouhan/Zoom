@@ -12,8 +12,7 @@ const imageZoomReducer = (state, action) => {
         return { ...state, zoomLevel: Math.max(state.zoomLevel - 0.1, MIN_ZOOM) };
       case 'RESET_ZOOM':
         return { ...state, zoomLevel: 1, positionX: 0, positionY: 0 };
-      case 'PAN_IMAGE':
-        return { ...state, positionX: action.positionX, positionY: action.positionY };
+      
       default:
         return state;
     }
@@ -44,7 +43,7 @@ const ZoomableImage = ({ imageUrl }) => {
     <div className='zoom'>
      <div style={{ 
           transform: `scale(${Math.min(Math.max(state.zoomLevel, MIN_ZOOM), MAX_ZOOM)}) translate(${state.positionX}px, ${state.positionY}px)`
-           // Set transform origin to top left when shouldFlip is true
+          
        }}>
         <div className='img'>
         <img
